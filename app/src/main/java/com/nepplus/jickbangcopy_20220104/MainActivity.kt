@@ -2,12 +2,16 @@ package com.nepplus.jickbangcopy_20220104
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.nepplus.jickbangcopy_20220104.adaptas.RoomAdapter
 import com.nepplus.jickbangcopy_20220104.models.RoomData
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     val mRoomList = ArrayList<RoomData>()   // 변수명의 m : 멤버 변수라는 표식
 
+    lateinit var mRoomAdapter : RoomAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +27,10 @@ class MainActivity : AppCompatActivity() {
         mRoomList.add( RoomData (12540,"서울시 동작구", 9, "8번째 방입니다."))
         mRoomList.add( RoomData (98520,"서울시 동작구", 10, "9번째 방입니다."))
 
+
+        mRoomAdapter = RoomAdapter(this,mRoomList)
+        roomRecyclerView.adapter = mRoomAdapter
+        roomRecyclerView.layoutManager = LinearLayoutManager(this)
 
     }
 }
