@@ -24,6 +24,8 @@ class RoomAdapter(
             txtDescription.text = data.description
 
 //            가격 / 층수 => 추가 가공 필요
+
+            txtAddressAndFloor.text = "${data.address}, ${data.getFormattedFloor()}"
         }
 
     }
